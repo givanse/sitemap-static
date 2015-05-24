@@ -47,6 +47,7 @@ finder.on('file', function(file, stat) {
     for (var i = 0; i < ignore_folders.length; i++) {
         if (file.match(ignore_folders[i])) return;
     }
+    file = file.substring(0, file.indexOf('index.html'));
     process.stdout.write(indent(1) + '<url>\n');
     process.stdout.write(indent(2) + '<loc>');
     process.stdout.write(prefix + file);
